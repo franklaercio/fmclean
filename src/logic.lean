@@ -28,7 +28,9 @@ end
 theorem doubleneg_law :
   ¬¬P ↔ P  :=
 begin
-  sorry,
+  apply iff.intro,
+  apply doubleneg_elim,
+  apply doubleneg_intro,
 end
 
 ------------------------------------------------
