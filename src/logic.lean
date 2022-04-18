@@ -19,7 +19,10 @@ end
 theorem doubleneg_elim :
   ¬¬P → P  :=
 begin
-  sorry,
+  intro hp,
+  by_cases h : P,
+  exact h,
+  contradiction,
 end
 
 theorem doubleneg_law :
