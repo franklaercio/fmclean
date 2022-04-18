@@ -279,7 +279,8 @@ end
 theorem weaken_disj_left :
   Q → (P∨Q)  :=
 begin
-  sorry,
+  intro hq,
+  right, exact hq,
 end
 
 theorem weaken_conj_right :
