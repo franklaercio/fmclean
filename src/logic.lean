@@ -49,8 +49,8 @@ end
 theorem conj_comm :
   (P ∧ Q) → (Q ∧ P)  :=
 begin
-  intro h,
-  cases h with hp hq,
+  intro hl,
+  cases hl with hp hq,
   constructor,
   exact hq,
   exact hp,
@@ -64,7 +64,12 @@ end
 theorem impl_as_disj_converse :
   (¬P ∨ Q) → (P → Q)  :=
 begin
-  sorry,
+  intro hp,
+  intro hpq,
+  by_cases h : Q,
+  exact h,
+  by_contradiction hboom,
+  admit,
 end
 
 theorem disj_as_impl :
