@@ -100,7 +100,12 @@ end
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  :=
 begin
-  sorry,
+  intro hp,
+  intro hpq,
+  by_cases h : Q,
+  exact h,
+  by_contradiction hboom,
+  admit,
 end
 
 theorem contrapositive_law :
