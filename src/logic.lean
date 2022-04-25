@@ -199,7 +199,13 @@ end
 theorem demorgan_disj_converse :
   (¬P ∧ ¬Q) → ¬(P∨Q)  :=
 begin
-  sorry,
+  intro hc,
+  intro hnor,
+  cases hnor with hp hq,
+  cases hc with hnp hnq,
+  contradiction,
+  cases hc with hnp hnq,
+  contradiction,
 end
 
 theorem demorgan_conj :
