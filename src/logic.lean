@@ -239,7 +239,9 @@ end
 theorem demorgan_conj_law :
   ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
 begin
-  sorry,
+  apply iff.intro,
+  apply demorgan_conj,
+  apply demorgan_conj_converse,
 end
 
 theorem demorgan_disj_law :
