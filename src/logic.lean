@@ -453,7 +453,11 @@ end
 theorem demorgan_exists_converse :
   (∀x, ¬P x) → ¬(∃x, P x)  :=
 begin
-  sorry,
+  intro hepx,
+  intro nx,
+  cases nx with x hpx,
+  have hnpx : ¬P x := hepx x,
+  contradiction,
 end
 
 theorem demorgan_forall :
