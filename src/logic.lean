@@ -302,7 +302,14 @@ end
 theorem conj_idempot :
   (P∧P) ↔ P :=
 begin
-  sorry,
+  apply iff.intro,
+  apply weaken_conj_right,
+  intro hpp,
+  split,
+  by_contra,
+  contradiction,
+  by_contra,
+  contradiction,
 end
 
 theorem disj_idempot :
