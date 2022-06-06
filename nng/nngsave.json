@@ -313,7 +313,8 @@
     },
     {
       "lean": "lemma eq_zero_of_add_right_eq_self {a b : mynat} : a + b = a → b = 0 :=\n",
-      "editorText": "intro h,\ninduction a with c i,\nrw add_comm at h,\nrw add_zero at h,\nexact h,"
+      "isSolved": true,
+      "editorText": "intro h,\ninduction a with c i,\nrw add_comm at h,\nrw add_zero at h,\nexact h,\napply i,\napply succ_inj,\nrw succ_add at h,\nexact h,"
     },
     {
       "lean": "theorem succ_ne_zero (a : mynat) : succ a ≠ 0 := \n",
