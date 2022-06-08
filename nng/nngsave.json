@@ -299,7 +299,7 @@
     {
       "lean": "theorem add_right_cancel (a t b : mynat) : a + t = b + t → a = b :=\n",
       "isSolved": true,
-      "editorText": "intro h,\ninduction t with c i,\nrw add_zero a at h,\nrw add_zero b at h,\nexact h,\nrw add_succ a at h,\nrw add_succ b at h,\nhave j := succ_inj(h),\nhave k := i(j),\nexact k,"
+      "editorText": "intro h,\ninduction t with s hs,\nrw add_zero a at h,\nrw add_zero b at h,\nexact h,\nrw add_succ a at h,\nrw add_succ b at h,\nhave hs₂ := succ_inj(h),\nhave ha := hs(hs₂),\nexact ha,"
     },
     {
       "lean": "theorem add_left_cancel (t a b : mynat) : t + a = t + b → a = b :=\n",
@@ -314,7 +314,7 @@
     {
       "lean": "lemma eq_zero_of_add_right_eq_self {a b : mynat} : a + b = a → b = 0 :=\n",
       "isSolved": true,
-      "editorText": "intro h,\ninduction a with c i,\nrw add_comm at h,\nrw add_zero at h,\nexact h,\napply i,\napply succ_inj,\nrw succ_add at h,\nexact h,"
+      "editorText": "intro h,\ninduction a with c hc,\nrw add_comm at h,\nrw add_zero at h,\nexact h,\napply hc,\napply succ_inj,\nrw succ_add at h,\nexact h,"
     },
     {
       "lean": "theorem succ_ne_zero (a : mynat) : succ a ≠ 0 := \n",
@@ -324,12 +324,12 @@
     {
       "lean": "lemma add_left_eq_zero {{a b : mynat}} (H : a + b = 0) : b = 0 :=\n",
       "isSolved": true,
-      "editorText": "cases b with d,\nrefl,\nrw add_succ at H,\nexfalso,\nhave i := succ_ne_zero (a + d),\nhave j := i(H),\nexact j,"
+      "editorText": "cases b with c,\nrefl,\nrw add_succ at H,\nexfalso,\nhave I := succ_ne_zero (a + c),\nhave J := I(H),\nexact J,"
     },
     {
       "lean": "lemma add_right_eq_zero {a b : mynat} : a + b = 0 → a = 0 :=\n",
       "isSolved": true,
-      "editorText": "rw add_comm a b,\nintro h,\nhave i := add_left_eq_zero(h),\nexact i,"
+      "editorText": "rw add_comm a b,\nintro h,\nhave ha := add_left_eq_zero(h),\nexact ha,"
     },
     {
       "lean": "theorem add_one_eq_succ (d : mynat) : d + 1 = succ d :=\n",
@@ -338,7 +338,8 @@
     },
     {
       "lean": "lemma ne_succ_self (n : mynat) : n ≠ succ n :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with m hm,\nexact zero_ne_succ 0,\nintro h,\napply hm,\napply succ_inj,\nexact h,"
     },
     {
       "lean": "theorem mul_pos (a b : mynat) : a ≠ 0 → b ≠ 0 → a * b ≠ 0 :=\n",
